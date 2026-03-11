@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalCaluclator", "UniversalCaluclator\UniversalCaluclator.csproj", "{C9C6D7DC-1A86-4AD1-9CB1-F8F4B5514A6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9C6D7DC-1A86-4AD1-9CB1-F8F4B5514A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C6D7DC-1A86-4AD1-9CB1-F8F4B5514A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C6D7DC-1A86-4AD1-9CB1-F8F4B5514A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C6D7DC-1A86-4AD1-9CB1-F8F4B5514A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

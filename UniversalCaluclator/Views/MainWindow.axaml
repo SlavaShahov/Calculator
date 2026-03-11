@@ -1,0 +1,487 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:UniversalCaluclator.ViewModels"
+        xmlns:local="using:UniversalCaluclator.Converters"
+        x:Class="UniversalCaluclator.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="Калькулятор комплексных чисел"
+        Width="400" Height="730"
+        MinWidth="400" MinHeight="730"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen"
+        Background="#1E1E2E">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Window.Resources>
+        <local:MemoryToColorConverter x:Key="MemoryToColorConverter"/>
+    </Window.Resources>
+
+    <Window.Styles>
+        <Style Selector="Button.calc">
+            <Setter Property="Background" Value="#313244"/>
+            <Setter Property="Foreground" Value="#CDD6F4"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.calc:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#45475A"/>
+        </Style>
+
+        <Style Selector="Button.op">
+            <Setter Property="Background" Value="#1E66F5"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.op:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#3D8EF8"/>
+        </Style>
+
+        <Style Selector="Button.fn">
+            <Setter Property="Background" Value="#40A02B"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.fn:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#5DC444"/>
+        </Style>
+
+        <Style Selector="Button.mem">
+            <Setter Property="Background" Value="#7C3AED"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.mem:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#9B59F5"/>
+        </Style>
+
+        <Style Selector="Button.danger">
+            <Setter Property="Background" Value="#D20F39"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.danger:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#F04060"/>
+        </Style>
+
+        <Style Selector="Button.eq">
+            <Setter Property="Background" Value="#FE640B"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.eq:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#FF8533"/>
+        </Style>
+
+        <Style Selector="Button.imag">
+            <Setter Property="Background" Value="#8839EF"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.imag:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#A855F7"/>
+        </Style>
+
+        <Style Selector="Button.cfn">
+            <Setter Property="Background" Value="#179299"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.cfn:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#22C5CC"/>
+        </Style>
+    </Window.Styles>
+
+    <DockPanel>
+
+        <!-- МЕНЮ -->
+        <Menu DockPanel.Dock="Top" Background="#11111B" Padding="4,2">
+            <MenuItem Header="Правка" Foreground="#A6ADC8" FontSize="12">
+                <MenuItem Header="Копировать  Ctrl+C"
+                          Command="{Binding CopyCommand}"
+                          Foreground="#CDD6F4"
+                          ToolTip.Tip="Скопировать отображаемое значение в буфер обмена"/>
+                <MenuItem Header="Вставить     Ctrl+V"
+                          Command="{Binding PasteCommand}"
+                          Foreground="#CDD6F4"
+                          ToolTip.Tip="Вставить число из буфера обмена как операнд"/>
+            </MenuItem>
+            <MenuItem Header="Настройка" Foreground="#A6ADC8" FontSize="12">
+                <MenuItem Header="Формат: Комплексный"
+                          Command="{Binding SetComplexFormatCommand}"
+                          Foreground="#CDD6F4"
+                          ToolTip.Tip="Результат всегда в виде a+bi"/>
+                <MenuItem Header="Формат: Действительный"
+                          Command="{Binding SetRealFormatCommand}"
+                          Foreground="#CDD6F4"
+                          ToolTip.Tip="Показывать как действительное, если мнимая часть = 0"/>
+            </MenuItem>
+            <MenuItem Header="Справка" Foreground="#A6ADC8" FontSize="12">
+                <MenuItem Header="О программе"
+                          Command="{Binding ShowHelpCommand}"
+                          Foreground="#CDD6F4"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- ДИСПЛЕЙ -->
+        <Border DockPanel.Dock="Top" Background="#11111B"
+                Padding="14,8" Margin="6,4,6,0" CornerRadius="10">
+            <Grid RowDefinitions="Auto,Auto,Auto">
+                <StackPanel Grid.Row="0" Orientation="Horizontal"
+                            HorizontalAlignment="Right" Spacing="8" Margin="0,0,0,2">
+                    <Border Background="{Binding MemoryIndicator, Converter={StaticResource MemoryToColorConverter}}"
+                            CornerRadius="4" Padding="6,2"
+                            ToolTip.Tip="M — в памяти есть значение">
+                        <TextBlock Text="{Binding MemoryIndicator}"
+                                   Foreground="White" FontSize="11" FontWeight="Bold"
+                                   MinWidth="12"/>
+                    </Border>
+                    <TextBlock Text="{Binding FormatLabel}"
+                               Foreground="#6C7086" FontSize="11"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <TextBlock Grid.Row="1"
+                           Text="{Binding ExpressionLine}"
+                           Foreground="#585B70" FontSize="12"
+                           HorizontalAlignment="Right"
+                           TextTrimming="CharacterEllipsis"
+                           ToolTip.Tip="{Binding ExpressionLine}"/>
+
+                <SelectableTextBlock Grid.Row="2"
+                           Text="{Binding Display}"
+                           Foreground="#CDD6F4"
+                           FontSize="28" FontWeight="Light"
+                           FontFamily="Consolas, Courier New, monospace"
+                           HorizontalAlignment="Right"
+                           TextWrapping="NoWrap"
+                           TextTrimming="CharacterEllipsis"
+                           SelectionBrush="#3D8EF8"
+                           ToolTip.Tip="{Binding Display}"/>
+            </Grid>
+        </Border>
+
+        <!-- ПАНЕЛЬ КОМПЛЕКСНЫХ ФУНКЦИЙ -->
+        <Border DockPanel.Dock="Top" Background="#181825"
+                Padding="8,6" Margin="6,4,6,0" CornerRadius="10">
+            <StackPanel Spacing="4">
+
+                <!-- n= + Pwr + Root -->
+                <Grid ColumnDefinitions="Auto,Auto,*,*">
+                    <TextBlock Grid.Column="0" Text="n ="
+                               Foreground="#6C7086" FontSize="12"
+                               VerticalAlignment="Center" Margin="4,0,4,0"/>
+                    <!-- Спиннер без TextBox: кнопки не перехватывают клавиатурный фокус -->
+                    <Border Grid.Column="1" Background="#313244" CornerRadius="6"
+                            BorderBrush="#45475A" BorderThickness="1"
+                            VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="−"
+                                    Command="{Binding ParamDecrCommand}"
+                                    Focusable="False"
+                                    Background="Transparent" Foreground="#CDD6F4"
+                                    BorderThickness="0" FontSize="14" FontWeight="Bold"
+                                    Width="24" Height="26" Padding="0"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Cursor="Hand"
+                                    ToolTip.Tip="Уменьшить степень"/>
+                            <TextBlock Text="{Binding FunctionParamText}"
+                                       Foreground="#CDD6F4" FontSize="13"
+                                       MinWidth="22"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <Button Content="+"
+                                    Command="{Binding ParamIncrCommand}"
+                                    Focusable="False"
+                                    Background="Transparent" Foreground="#CDD6F4"
+                                    BorderThickness="0" FontSize="14" FontWeight="Bold"
+                                    Width="24" Height="26" Padding="0"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Cursor="Hand"
+                                    ToolTip.Tip="Увеличить степень"/>
+                        </StackPanel>
+                    </Border>
+                    <Button Grid.Column="2" Classes="cfn" Content="zⁿ  Pwr"
+                            Focusable="False"
+                            Command="{Binding PowerCommand}"
+                            ToolTip.Tip="Возвести в степень n (Pwr)"/>
+                    <Button Grid.Column="3" Classes="cfn" Content="ⁿ√z  Root"
+                            Focusable="False"
+                            Command="{Binding RootCommand}"
+                            ToolTip.Tip="Корень n-й степени (Root); все корни — в поле ниже"/>
+                </Grid>
+
+                <!-- Mdl, arg°, arg rad -->
+                <Grid ColumnDefinitions="*,*,*">
+                    <Button Grid.Column="0" Classes="cfn" Content="|z|  Mdl"
+                            Focusable="False"
+                            Command="{Binding ModulusCommand}"
+                            ToolTip.Tip="Модуль комплексного числа"/>
+                    <Button Grid.Column="1" Classes="cfn" Content="arg °  Cnr"
+                            Focusable="False"
+                            Command="{Binding ArgDegCommand}"
+                            ToolTip.Tip="Аргумент в градусах"/>
+                    <Button Grid.Column="2" Classes="cfn" Content="arg rad  Cnr"
+                            Focusable="False"
+                            Command="{Binding ArgRadCommand}"
+                            ToolTip.Tip="Аргумент в радианах"/>
+                </Grid>
+
+                <!-- Поля результатов функций -->
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto">
+
+                    <Border Grid.Row="0" Grid.Column="0"
+                            Background="#1E1E2E" CornerRadius="6" Padding="6,4" Margin="2">
+                        <StackPanel>
+                            <TextBlock Text="zⁿ" FontSize="9" Foreground="#6C7086"/>
+                            <TextBlock Text="{Binding ResultPwr}" FontSize="12"
+                                       Foreground="#89DCEB" FontFamily="Consolas, Courier New"
+                                       TextTrimming="CharacterEllipsis"
+                                       ToolTip.Tip="{Binding ResultPwr}"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="1"
+                            Background="#1E1E2E" CornerRadius="6" Padding="6,4" Margin="2">
+                        <StackPanel>
+                            <TextBlock Text="ⁿ√z (осн.)" FontSize="9" Foreground="#6C7086"/>
+                            <TextBlock Text="{Binding ResultRoot}" FontSize="12"
+                                       Foreground="#A6E3A1" FontFamily="Consolas, Courier New"
+                                       TextTrimming="CharacterEllipsis"
+                                       ToolTip.Tip="{Binding ResultRoot}"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="2"
+                            Background="#1E1E2E" CornerRadius="6" Padding="6,4" Margin="2">
+                        <StackPanel>
+                            <TextBlock Text="|z|" FontSize="9" Foreground="#6C7086"/>
+                            <TextBlock Text="{Binding ResultMdl}" FontSize="12"
+                                       Foreground="#F9E2AF" FontFamily="Consolas, Courier New"
+                                       TextTrimming="CharacterEllipsis"
+                                       ToolTip.Tip="{Binding ResultMdl}"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="0"
+                            Background="#1E1E2E" CornerRadius="6" Padding="6,4" Margin="2">
+                        <StackPanel>
+                            <TextBlock Text="arg °" FontSize="9" Foreground="#6C7086"/>
+                            <TextBlock Text="{Binding ResultArgDeg}" FontSize="12"
+                                       Foreground="#CBA6F7" FontFamily="Consolas, Courier New"
+                                       TextTrimming="CharacterEllipsis"
+                                       ToolTip.Tip="{Binding ResultArgDeg}"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="1"
+                            Background="#1E1E2E" CornerRadius="6" Padding="6,4" Margin="2">
+                        <StackPanel>
+                            <TextBlock Text="arg rad" FontSize="9" Foreground="#6C7086"/>
+                            <TextBlock Text="{Binding ResultArgRad}" FontSize="12"
+                                       Foreground="#FAB387" FontFamily="Consolas, Courier New"
+                                       TextTrimming="CharacterEllipsis"
+                                       ToolTip.Tip="{Binding ResultArgRad}"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="2"
+                            Background="#1E1E2E" CornerRadius="6" Padding="6,4" Margin="2">
+                        <StackPanel>
+                            <TextBlock Text="все корни" FontSize="9" Foreground="#6C7086"/>
+                            <ListBox ItemsSource="{Binding AllRoots}"
+                                     MaxHeight="40"
+                                     Background="Transparent" BorderThickness="0"
+                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                     ToolTip.Tip="Все n корней n-й степени">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" FontSize="9"
+                                                   FontFamily="Consolas, Courier New"
+                                                   Foreground="#A6E3A1"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </Border>
+
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <!-- КНОПОЧНАЯ ПАНЕЛЬ -->
+        <Border Padding="6,4,6,6">
+            <StackPanel Spacing="0">
+
+                <!-- Память: MC MR MS M+ -->
+                <Grid ColumnDefinitions="*,*,*,*">
+                    <Button Grid.Column="0" Classes="mem" Content="MC"
+                            Command="{Binding PressButtonCommand}" CommandParameter="42"
+                            ToolTip.Tip="Очистить память (MC)"/>
+                    <Button Grid.Column="1" Classes="mem" Content="MR"
+                            Command="{Binding PressButtonCommand}" CommandParameter="41"
+                            ToolTip.Tip="Восстановить из памяти (MR)"/>
+                    <Button Grid.Column="2" Classes="mem" Content="MS"
+                            Command="{Binding PressButtonCommand}" CommandParameter="40"
+                            ToolTip.Tip="Сохранить в память (MS)"/>
+                    <Button Grid.Column="3" Classes="mem" Content="M+"
+                            Command="{Binding PressButtonCommand}" CommandParameter="43"
+                            ToolTip.Tip="Добавить к памяти (M+)"/>
+                </Grid>
+
+                <!-- x²  1/x  CE  C -->
+                <Grid ColumnDefinitions="*,*,*,*">
+                    <Button Grid.Column="0" Classes="fn" Content="x²"
+                            Command="{Binding PressButtonCommand}" CommandParameter="34"
+                            ToolTip.Tip="Квадрат (Sqr)"/>
+                    <Button Grid.Column="1" Classes="fn" Content="1/x"
+                            Command="{Binding PressButtonCommand}" CommandParameter="35"
+                            ToolTip.Tip="Обратное (Rev = 1/x)"/>
+                    <Button Grid.Column="2" Classes="danger" Content="CE"
+                            Command="{Binding PressButtonCommand}" CommandParameter="21"
+                            ToolTip.Tip="Сбросить текущее значение"/>
+                    <Button Grid.Column="3" Classes="danger" Content="C"
+                            Command="{Binding PressButtonCommand}" CommandParameter="37"
+                            ToolTip.Tip="Сбросить всё"/>
+                </Grid>
+
+                <!-- 7  8  9  ⌫ -->
+                <Grid ColumnDefinitions="*,*,*,*">
+                    <Button Grid.Column="0" Classes="calc" Content="7"
+                            Command="{Binding PressButtonCommand}" CommandParameter="7"/>
+                    <Button Grid.Column="1" Classes="calc" Content="8"
+                            Command="{Binding PressButtonCommand}" CommandParameter="8"/>
+                    <Button Grid.Column="2" Classes="calc" Content="9"
+                            Command="{Binding PressButtonCommand}" CommandParameter="9"/>
+                    <Button Grid.Column="3" Classes="danger" Content="⌫"
+                            Command="{Binding PressButtonCommand}" CommandParameter="20"
+                            ToolTip.Tip="Удалить последний символ (Backspace)"/>
+                </Grid>
+
+                <!-- 4  5  6  × -->
+                <Grid ColumnDefinitions="*,*,*,*">
+                    <Button Grid.Column="0" Classes="calc" Content="4"
+                            Command="{Binding PressButtonCommand}" CommandParameter="4"/>
+                    <Button Grid.Column="1" Classes="calc" Content="5"
+                            Command="{Binding PressButtonCommand}" CommandParameter="5"/>
+                    <Button Grid.Column="2" Classes="calc" Content="6"
+                            Command="{Binding PressButtonCommand}" CommandParameter="6"/>
+                    <Button Grid.Column="3" Classes="op" Content="×"
+                            Command="{Binding PressButtonCommand}" CommandParameter="32"
+                            ToolTip.Tip="Умножение"/>
+                </Grid>
+
+                <!-- 1  2  3  − -->
+                <Grid ColumnDefinitions="*,*,*,*">
+                    <Button Grid.Column="0" Classes="calc" Content="1"
+                            Command="{Binding PressButtonCommand}" CommandParameter="1"/>
+                    <Button Grid.Column="1" Classes="calc" Content="2"
+                            Command="{Binding PressButtonCommand}" CommandParameter="2"/>
+                    <Button Grid.Column="2" Classes="calc" Content="3"
+                            Command="{Binding PressButtonCommand}" CommandParameter="3"/>
+                    <Button Grid.Column="3" Classes="op" Content="−"
+                            Command="{Binding PressButtonCommand}" CommandParameter="31"
+                            ToolTip.Tip="Вычитание"/>
+                </Grid>
+
+                <!-- ±  0  .  + -->
+                <Grid ColumnDefinitions="*,*,*,*">
+                    <Button Grid.Column="0" Classes="calc" Content="±"
+                            Command="{Binding PressButtonCommand}" CommandParameter="16"
+                            ToolTip.Tip="Сменить знак"/>
+                    <Button Grid.Column="1" Classes="calc" Content="0"
+                            Command="{Binding PressButtonCommand}" CommandParameter="0"/>
+                    <Button Grid.Column="2" Classes="calc" Content="."
+                            Command="{Binding PressButtonCommand}" CommandParameter="18"
+                            ToolTip.Tip="Десятичная точка"/>
+                    <Button Grid.Column="3" Classes="op" Content="+"
+                            Command="{Binding PressButtonCommand}" CommandParameter="30"
+                            ToolTip.Tip="Сложение"/>
+                </Grid>
+
+                <!-- i  ÷  = -->
+                <Grid ColumnDefinitions="*,*,*">
+                    <Button Grid.Column="0" Classes="imag" Content="i"
+                            Command="{Binding PressButtonCommand}" CommandParameter="19"
+                            ToolTip.Tip="Ввод мнимой части — разделитель i"/>
+                    <Button Grid.Column="1" Classes="op" Content="÷"
+                            Command="{Binding PressButtonCommand}" CommandParameter="33"
+                            ToolTip.Tip="Деление"/>
+                    <Button Grid.Column="2" Classes="eq" Content="="
+                            Command="{Binding PressButtonCommand}" CommandParameter="36"
+                            ToolTip.Tip="Вычислить результат (Enter)"/>
+                </Grid>
+
+            </StackPanel>
+        </Border>
+
+    </DockPanel>
+</Window>
