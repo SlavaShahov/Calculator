@@ -104,6 +104,22 @@ public partial class MainWindowViewModel : ViewModelBase
             case CalcCmd.OpSub: SetOp("−"); break;
             case CalcCmd.OpMul: SetOp("×"); break;
             case CalcCmd.OpDvd: SetOp("÷"); break;
+            case CalcCmd.FnSqr:
+            {
+                var (_, im) = CurrentComplex();
+                string op = im != 0 ? $"({Display})²" : $"{Display}²";
+                ExpressionLine = $"{op} =";
+                _exprAccum = ""; _pendingOp = "";
+                break;
+            }
+            case CalcCmd.FnRev:
+            {
+                var (_, im) = CurrentComplex();
+                string op = im != 0 ? $"1/({Display})" : $"1/{Display}";
+                ExpressionLine = $"{op} =";
+                _exprAccum = ""; _pendingOp = "";
+                break;
+            }
             case CalcCmd.Equal:
                 if (!string.IsNullOrEmpty(_pendingOp))
                     ExpressionLine = $"{_exprAccum} {_pendingOp} {Display} =";
@@ -134,11 +150,13 @@ public partial class MainWindowViewModel : ViewModelBase
     private void Power()
     {
         var (re, im) = CurrentComplex();
-        var z  = new TComp(re, im);
-        var zn = z.Power(_funcParam);
-        ResultPwr    = ApplyFormat(zn.NumberString);
-        Display      = ResultPwr;
-        ExpressionLine = $"({Display})^{_funcParam} =";
+        string operand    = ApplyFormat(Display);
+        string operandStr = im != 0 ? $"({operand})" : operand;
+
+        var zn = new TComp(re, im).Power(_funcParam);
+        ResultPwr      = ApplyFormat(zn.NumberString);
+        Display        = ResultPwr;
+        ExpressionLine = $"{operandStr}^{_funcParam} =";
         AllRoots.Clear();
     }
 
@@ -146,16 +164,17 @@ public partial class MainWindowViewModel : ViewModelBase
     private void Root()
     {
         var (re, im) = CurrentComplex();
-        var z     = new TComp(re, im);
-        var roots = z.Roots(_funcParam);
+        string operand    = ApplyFormat(Display);
+        string operandStr = im != 0 ? $"({operand})" : operand;
 
+        var roots = new TComp(re, im).Roots(_funcParam);
         AllRoots.Clear();
         foreach (var r in roots)
             AllRoots.Add(ApplyFormat(r.NumberString));
 
         ResultRoot     = AllRoots.Count > 0 ? AllRoots[0] : "";
         Display        = ResultRoot;
-        ExpressionLine = $"root({_funcParam}, {Display}) =";
+        ExpressionLine = $"{_funcParam}√{operandStr} =";
     }
 
     [RelayCommand]
@@ -243,36 +262,16 @@ public partial class MainWindowViewModel : ViewModelBase
                 string? text = await tl.Clipboard.GetTextAsync();
                 if (string.IsNullOrWhiteSpace(text)) return;
 
-                // Сбрасываем редактор и вводим посимвольно
-                _ctrl.ExecCmd(CalcCmd.ClearAll, out _);
-                _exprAccum     = "";
-                _pendingOp     = "";
-                ExpressionLine = "";
+                text = text.Trim().Replace(",", ".");
 
-                foreach (char c in text.Trim())
-                {
-                    int digitCmd = c switch
-                    {
-                        >= '0' and <= '9' => c - '0',
-                        'A' or 'a' => 10,
-                        'B' or 'b' => 11,
-                        'C' or 'c' => 12,
-                        'D' or 'd' => 13,
-                        'E' or 'e' => 14,
-                        'F' or 'f' => 15,
-                        '+' => CalcCmd.Sign,
-                        '-' => CalcCmd.Sign,
-                        '.' or ',' => EditorCmd.SepDot,
-                        'i' or 'I' => EditorCmd.SepComplex,
-                        _ => -1
-                    };
-                    if (digitCmd >= 0)
-                    {
-                        string res = _ctrl.ExecCmd(digitCmd, out string mem);
-                        Display        = ApplyFormat(res);
-                        MemoryIndicator = mem;
-                    }
-                }
+                // Парсим как комплексное число
+                var (re, im) = ParseComplexString(text);
+                var z = new TComp(re, im);
+
+                // Вставляем как новый операнд — не сбрасываем состояние контроллера,
+                // чтобы не потерять накопленную операцию (например 3+4i + [вставить 2])
+                _ctrl.SetEditorNumber(z.NumberString);
+                Display = ApplyFormat(z.NumberString);
                 ClearFuncResults();
             }
         }
@@ -337,26 +336,19 @@ public partial class MainWindowViewModel : ViewModelBase
     /// </summary>
     private string ApplyFormat(string s)
     {
-        if (_complexFormat) return s; // Комплексный формат - всегда показываем как есть
+        var (re, im) = ParseComplexString(s);
 
-        // Действительный формат: если мнимая часть = 0, показываем только действительную часть
-        try
+        if (_complexFormat)
         {
-            // Парсим число как комплексное
-            var (re, im) = ParseComplexString(s);
-            
-            // Если мнимая часть равна 0 (с учётом погрешности), возвращаем только действительную часть
-            if (Math.Abs(im) < 1e-12)
-            {
-                return re.ToString("G6", CultureInfo.InvariantCulture);
-            }
-            
-            // Иначе возвращаем исходную строку
-            return s;
+            string reStr = re.ToString("G6", CultureInfo.InvariantCulture);
+            string sign  = im >= 0 ? "+" : "";
+            string imStr = im.ToString("G6", CultureInfo.InvariantCulture);
+            return $"{reStr}{sign}{imStr}i";
         }
-        catch
+        else
         {
-            // Если не удалось распарсить, возвращаем как есть
+            if (Math.Abs(im) < 1e-12)
+                return re.ToString("G6", CultureInfo.InvariantCulture);
             return s;
         }
     }

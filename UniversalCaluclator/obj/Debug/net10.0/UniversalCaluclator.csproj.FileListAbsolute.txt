@@ -146,3 +146,4 @@ D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\obj\Debug\n
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\obj\Debug\net10.0\UniversalCaluclator.pdb
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\obj\Debug\net10.0\UniversalCaluclator.genruntimeconfig.cache
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\obj\Debug\net10.0\ref\UniversalCaluclator.dll
+D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\obj\Debug\net10.0\UniversalCaluclator.sourcelink.json

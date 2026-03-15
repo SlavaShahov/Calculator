@@ -22,30 +22,12 @@ public class TComp : TANumber
     {
         get
         {
-            string re = _re.ToString("G6", CultureInfo.InvariantCulture);
-            
-            if (Math.Abs(_im) < 1e-12) 
-                return re;
-                
-            string imStr;
-            if (Math.Abs(Math.Abs(_im) - 1) < 1e-12)
-            {
-                // Мнимая часть равна ±1
-                imStr = _im > 0 ? "+i" : "-i";
-            }
-            else
-            {
-                string imAbs = Math.Abs(_im).ToString("G6", CultureInfo.InvariantCulture);
-                imStr = _im > 0 ? $"+{imAbs}i" : $"-{imAbs}i";
-            }
-            
-            // Если действительная часть равна 0
-            if (Math.Abs(_re) < 1e-12)
-            {
-                return imStr.TrimStart('+');
-            }
-            
-            return re + imStr;
+            double re = Math.Abs(_re) < 1e-12 ? 0.0 : _re;
+            double im = Math.Abs(_im) < 1e-12 ? 0.0 : _im;
+            string reStr = re.ToString("G6", CultureInfo.InvariantCulture);
+            string sign  = im >= 0 ? "+" : "";
+            string imStr = im.ToString("G6", CultureInfo.InvariantCulture);
+            return $"{reStr}{sign}{imStr}i";   // всегда a+bi
         }
         set => ParseString(value.Trim());
     }

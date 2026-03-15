@@ -108,6 +108,13 @@ public class TCtrl
         Init();
     }
 
+    /// <summary>Напрямую устанавливает строку в редактор — используется при вставке из буфера.</summary>
+    public void SetEditorNumber(string value)
+    {
+        _editor.Number = value;
+        _state = CtrlState.Editing;
+    }
+
     // ── Главная точка входа ────────────────────────────────────────────────
     public string ExecCmd(int cmd, out string memState)
     {
