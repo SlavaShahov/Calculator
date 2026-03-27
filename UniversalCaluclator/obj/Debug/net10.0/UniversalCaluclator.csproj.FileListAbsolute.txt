@@ -88,16 +88,13 @@ D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\n
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.OpenGL.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Vulkan.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.dll
-D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Controls.ColorPicker.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Desktop.dll
-D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Diagnostics.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Fonts.Inter.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.FreeDesktop.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Native.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Remote.Protocol.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Skia.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Themes.Fluent.dll
-D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Themes.Simple.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Win32.Automation.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Win32.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.X11.dll
@@ -147,3 +144,10 @@ D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\obj\Debug\n
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\obj\Debug\net10.0\UniversalCaluclator.genruntimeconfig.cache
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\obj\Debug\net10.0\ref\UniversalCaluclator.dll
 D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\obj\Debug\net10.0\UniversalCaluclator.sourcelink.json
+D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\xunit.abstractions.dll
+D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\xunit.assert.dll
+D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\xunit.core.dll
+D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\xunit.execution.dotnet.dll
+D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Controls.ColorPicker.dll
+D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Diagnostics.dll
+D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Debug\net10.0\Avalonia.Themes.Simple.dll

@@ -81,14 +81,11 @@ public class TCtrl
 
     private TANumber MakeZero() => _mode switch
     {
-        CalcMode.Fraction => new TFrac(0, 1),
-        CalcMode.Complex  => new TComp(0, 0),
-        _                 => new TPNumber(0, _pBase)
+        CalcMode.Complex  => new TComp(0, 0)
     };
 
     private AEditor MakeEditor() => _mode switch
     {
-        CalcMode.Fraction => new FEditor(),
         CalcMode.Complex  => new CEditor(),
         _                 => new PEditor(_pBase)
     };

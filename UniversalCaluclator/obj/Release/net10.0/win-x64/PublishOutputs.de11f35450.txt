@@ -1,0 +1,2 @@
+D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Release\net10.0\win-x64\publish\UniversalCaluclator.pdb
+D:\SIBSUTI\8_semestr\СТП2\UniversalCaluclator\UniversalCaluclator\bin\Release\net10.0\win-x64\publish\UniversalCaluclator.exe

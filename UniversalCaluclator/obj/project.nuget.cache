@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xQJOlBP/SD8=",
+  "dgSpecHash": "0mP8nicKTdI=",
   "success": true,
   "projectFilePath": "D:\\SIBSUTI\\8_semestr\\СТП2\\UniversalCaluclator\\UniversalCaluclator\\UniversalCaluclator.csproj",
   "expectedPackageFiles": [
@@ -31,7 +31,14 @@
     "C:\\Users\\Slava\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.9\\skiasharp.nativeassets.macos.2.88.9.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\skiasharp.nativeassets.webassembly\\2.88.9\\skiasharp.nativeassets.webassembly.2.88.9.nupkg.sha512",
     "C:\\Users\\Slava\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.9\\skiasharp.nativeassets.win32.2.88.9.nupkg.sha512",
-    "C:\\Users\\Slava\\.nuget\\packages\\tmds.dbus.protocol\\0.21.2\\tmds.dbus.protocol.0.21.2.nupkg.sha512"
+    "C:\\Users\\Slava\\.nuget\\packages\\tmds.dbus.protocol\\0.21.2\\tmds.dbus.protocol.0.21.2.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\xunit\\2.9.3\\xunit.2.9.3.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\xunit.analyzers\\1.18.0\\xunit.analyzers.1.18.0.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\xunit.assert\\2.9.3\\xunit.assert.2.9.3.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\xunit.core\\2.9.3\\xunit.core.2.9.3.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\xunit.extensibility.core\\2.9.3\\xunit.extensibility.core.2.9.3.nupkg.sha512",
+    "C:\\Users\\Slava\\.nuget\\packages\\xunit.extensibility.execution\\2.9.3\\xunit.extensibility.execution.2.9.3.nupkg.sha512"
   ],
   "logs": []
 }

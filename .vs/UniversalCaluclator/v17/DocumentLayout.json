@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SIBSUTI\\8_semestr\\\u0421\u0422\u041F2\\UniversalCaluclator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{89F49FE3-58AD-4D90-97F5-800DAF2BC375}|UniversalCalculator.Tests\\UniversalCalculator.Tests.csproj|d:\\sibsuti\\8_semestr\\\u0441\u0442\u043F2\\universalcaluclator\\universalcalculator.tests\\universalcalculator.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{89F49FE3-58AD-4D90-97F5-800DAF2BC375}|UniversalCalculator.Tests\\UniversalCalculator.Tests.csproj|solutionrelative:universalcalculator.tests\\universalcalculator.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UniversalCalculator.Tests.csproj",
+              "DocumentMoniker": "D:\\SIBSUTI\\8_semestr\\\u0421\u0422\u041F2\\UniversalCaluclator\\UniversalCalculator.Tests\\UniversalCalculator.Tests.csproj",
+              "RelativeDocumentMoniker": "UniversalCalculator.Tests\\UniversalCalculator.Tests.csproj",
+              "ToolTip": "D:\\SIBSUTI\\8_semestr\\\u0421\u0422\u041F2\\UniversalCaluclator\\UniversalCalculator.Tests\\UniversalCalculator.Tests.csproj",
+              "RelativeToolTip": "UniversalCalculator.Tests\\UniversalCalculator.Tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-17T07:56:17.067Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
